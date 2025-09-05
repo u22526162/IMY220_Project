@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "../styles/auth.css"
+import { useNavigate } from "react-router";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
+  function handleLogin() {
+    navigate("/dashboard");
+  }
   return (
     <div className="signin">
       <h1>Login </h1>
