@@ -1,0 +1,63 @@
+.profile-page {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.profile-left {
+  width: 250px;
+  background-color: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.profile-name {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+.profile-bio {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.profile-email {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.profile-right {
+  flex: 1;
+}
+
+.profile-section-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.profile-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.profile-project-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.profile-project-card h4 {
+  margin: 0 0 0.3rem;
+}

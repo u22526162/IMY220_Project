@@ -1,0 +1,44 @@
+.splash-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #4c6ef5, #6a82fb);
+  color: #fff;
+  text-align: center;
+}
+
+.splash-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.splash-hero p {
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.splash-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #fff;
+  color: #4c6ef5;
+}
+
+.btn-secondary {
+  border: 2px solid #fff;
+  color: #fff;
+}
