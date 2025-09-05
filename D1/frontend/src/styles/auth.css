@@ -7,10 +7,10 @@
   background: #354346;
 }
 
-.signin h2 {
+.signin h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #2b2b2b;
+  color: #fff;
 }
 
 .signin input {
@@ -57,10 +57,10 @@
   background: #354346;
 }
 
-.signup h2 {
+.signup h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #2b2b2b;
+  color: #fff;
 }
 
 .signup input {
@@ -72,6 +72,17 @@
   font-size: 0.95rem;
 }
 
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #002E3D;
+  border-radius: 6px;
+  width: 500px;
+  height: 300px;
+vertical-align: center;
+justify-content: center;
+}
 .signup button {
   width: 300px;
   padding: 0.7rem;

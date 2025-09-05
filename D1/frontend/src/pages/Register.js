@@ -6,24 +6,26 @@ export default function RegisterPage() {
 
   return (
     <div className="signup">
-      <h2>Sign up</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="button">Create Account</button>
-      <p>
-        Already have an account?{" "}
-        <a href="/login">Sign in</a>
-      </p>
+      <h1>Sign up</h1>
+      <div className="login-form">
+            <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="button">Create Account</button>
+            <p>
+                Already have an account?{" "}
+                <a href="/login">Sign in</a>
+            </p>
+        </div>
     </div>
   );
 }

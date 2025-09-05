@@ -3,14 +3,14 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(135deg, #4c6ef5 0%, #6a82fb 100%);
+  background: #354346;
   color: #fff;
   text-align: center;
   padding: 2rem;
 }
 
 .splash-hero h1 {
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }

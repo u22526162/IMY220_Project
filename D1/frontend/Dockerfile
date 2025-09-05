@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:22
 
 WORKDIR /app
 
@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+CMD ["npm", "run", "dev"]
 
-CMD ["npm", "start"]
+EXPOSE 3000
