@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/header.css";
 
-export default function SideMenu({ items, open, onClose }) {
+export default function SideMenu({ open, onClose }) {
   return (
     <>
       <div className={`side-menu ${open ? "open" : ""}`}>
@@ -9,14 +9,11 @@ export default function SideMenu({ items, open, onClose }) {
           &times;
         </button>
         <ul>
-          {items.map((item, idx) => (
-            <li key={idx} onClick={onClose}>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))}
+            {["Home", "Profile","Logout"].map((item) => (
+                <li key={item}><a href={`/${item.toLowerCase()}`}>{item}</a></li>
+            ))}
         </ul>
       </div>
-      {open && <div className="side-menu-overlay" onClick={onClose} />}
     </>
   );
 }

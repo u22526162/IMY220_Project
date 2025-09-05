@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../styles/auth.css";
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../styles/auth.css"
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +22,7 @@ export default function LoginPage() {
       <button type="button">Login</button>
       <p>
         Don’t have an account?{" "}
-        <a href="/signup">Sign up</a>
+        <a href="/register">Sign up</a>
       </p>
     </div>
   );

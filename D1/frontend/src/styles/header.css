@@ -1,12 +1,20 @@
+.logo-holder {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .header-main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background-color: #fff;
+  background-color: #002E3D;
   border-bottom: 1px solid #ddd;
 }
 
+h1 {
+    color: #1D8196;
+}
 .header-logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -28,7 +36,7 @@
 .side-menu {
   position: fixed;
   top: 0;
-  right: -250px; /* hidden */
+  right: -250px;
   width: 250px;
   height: 100%;
   background-color: #fff;

@@ -1,10 +1,11 @@
 import React from "react";
+import "../styles/header.css";
 
 export default function SplashHeader() {
   return (
-        <div style={{ display: 'flex', padding: '10px' }}>
+        <div className="header-main" style={{ padding: '10px' }}>
             <div className="logo-holder">
-                <img src="../../public/assets/images/Logo4.png" alt="Logo" width={50} height={100} />
+                <img src="/favicon.ico" alt="Logo" height={80} />
                 <h1>Graphyt</h1>
             </div>
         </div>

@@ -3,12 +3,12 @@ import FeedItem from "../components/FeedItem";
 
 function HomePage({ onNavigate }) {
   const projects = [
-    { name: "AI Chat Bot", date: "2 September" },
-    { name: "Totally Very Secure App", date: "25 August" },
+    { project: "AI Chat Bot", date: "2 September" },
+    { project: "Totally Very Secure App", date: "25 August" },
   ];
 
   const friends = [
-    { user: "Friend123", project: "Calculator app" }
+    { user: "Friend123", project: "Calculator app", date: "27 June" },
   ];
 
   return (

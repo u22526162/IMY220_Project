@@ -3,17 +3,19 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(135deg, #4c6ef5, #6a82fb);
+  background: linear-gradient(135deg, #4c6ef5 0%, #6a82fb 100%);
   color: #fff;
   text-align: center;
+  padding: 2rem;
 }
 
-.splash-header h1 {
+.splash-hero h1 {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-.splash-header p {
+.splash-hero p {
   font-size: 1.2rem;
   max-width: 500px;
   margin: 0 auto 2rem;
@@ -27,10 +29,11 @@
 
 .btn-primary,
 .btn-secondary {
-  padding: 0.7rem 1.5rem;
+  padding: 0.8rem 1.6rem;
   border-radius: 4px;
   font-weight: bold;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 .btn-primary {
