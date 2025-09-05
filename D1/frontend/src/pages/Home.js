@@ -1,5 +1,6 @@
 import React from "react";
 import FeedItem from "../components/FeedItem";
+import SearchBar from "../components/SearchBar";
 
 function HomePage({ onNavigate }) {
   const projects = [
@@ -13,6 +14,7 @@ function HomePage({ onNavigate }) {
 
   return (
     <div className="dashboard">
+        <SearchBar />
       <h2>Friends’ Activity</h2>
       {friends.map((p, index) => (
         <FeedItem key={index} item={p} />
