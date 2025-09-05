@@ -25,7 +25,7 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             minLength={7}
         />
-        <button type="button">Login</button>
+        <button type="button" onClick={handleLogin}>Login</button>
         <p>
             Don’t have an account?{" "}
             <a href="/register">Sign up</a>

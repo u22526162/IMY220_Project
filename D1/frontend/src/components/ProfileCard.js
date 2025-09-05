@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 function ProfileCard({ user }) {
   return (
     <div className="profile-card">

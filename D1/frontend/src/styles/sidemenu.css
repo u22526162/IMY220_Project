@@ -1,0 +1,52 @@
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #00314B;
+  color: #f5f5f5;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+  padding: 1.5rem 1rem;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.side-menu.open {
+  right: 0;/*slide in */
+}
+
+.side-menu .close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #f5f5f5;
+  float: right;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu li {
+  margin-bottom: 1rem;
+}
+
+.side-menu a {
+  display: block;
+  text-decoration: none;
+  color: #f5f5f5;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.side-menu a:hover {
+  background-color: #007EA7;
+  color: #f5f5f5;
+}

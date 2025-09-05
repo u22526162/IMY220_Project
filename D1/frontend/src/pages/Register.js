@@ -37,7 +37,7 @@ export default function RegisterPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="button" onClick={handleRegister()}>Create Account</button>
+            <button type="button" onClick={handleRegister}>Create Account</button>
             <p>
                 Already have an account?{" "}
                 <a href="/login">Sign in</a>

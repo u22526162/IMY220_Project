@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/feedItem.css";

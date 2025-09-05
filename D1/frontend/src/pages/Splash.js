@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 import React from "react";
 import "../styles/splash.css";
 import { Link } from "react-router";
