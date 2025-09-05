@@ -9,9 +9,10 @@ import SplashLayout from "./layouts/SplashLayout";
 import Layout from "./layouts/Layout";
 
 import LoginPage from "./pages/Login";
-import RegisterPage from "./pages/RegisterPage";
+import RegisterPage from "./pages/Register";
 import HomePage from "./pages/Home";
 import ProjectPage from "./pages/Project";
+import SplashPage from "./pages/Splash";
 
 export default function App() {
   return (

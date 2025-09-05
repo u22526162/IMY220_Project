@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
-import FriendActivity from "../components/FriendActivity";
-import ProjectCard from "../components/ProjectCard";
+import FeedItem from "../components/FeedItem";
 
 function HomePage({ onNavigate }) {
   const projects = [
@@ -15,24 +13,21 @@ function HomePage({ onNavigate }) {
 
   return (
     <div className="dashboard">
-      <Header />
-      <h2>My Projects</h2>
+      <h2>Friends’ Activity</h2>
+      {friends.map((p, index) => (
+        <FeedItem key={index} item={p} />
+      ))}
+      <h2>Trending:</h2>
       <div className="projects-grid">
         {projects.map((p, id) => (
-          <ProjectCard
+          <FeedItem
             key={id}
-            project={p}
-            onClick={() => onNavigate("project")}
+            item={p}
           />
         ))}
       </div>
-
-      <h2>Friends’ Activity</h2>
-      {friends.map((f, idx) => (
-        <FriendActivity key={idx} activity={f} />
-      ))}
     </div>
   );
 }
 
-export default Dashboard;
+export default HomePage;

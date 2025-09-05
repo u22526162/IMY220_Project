@@ -1,0 +1,12 @@
+.searchbar {
+  position: relative;
+  display: inline-block;
+}
+
+.searchbar input {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 250px;
+  font-size: 0.95rem;
+}
