@@ -5,7 +5,7 @@ import { connectDB, getDB } from './config/database.js';
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
-import checkinRoutes from './routes/checkinsRoutes.js';
+import checkinRoutes from './routes/checkinRoutes.js';
 
 const app = express();
 app.use(cors());
