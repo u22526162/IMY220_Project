@@ -1,8 +1,8 @@
-const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb';
 
 let db, client;
 
-export default async function connectMongo() {
+export async function connectDB() {
   try {
     client = new MongoClient(process.env.MONGO_URL);
     await client.connect();
@@ -15,13 +15,13 @@ export default async function connectMongo() {
   }
 }
 
-export default async function getDB() {
+export async function getDB() {
   if (!db)
     throw new Error('Database not connected. Call connect() first.');
   return db;
 }
 
-export default async function closeDB() {
+export async function closeDB() {
   if (client) {
     await client.close();
   }
