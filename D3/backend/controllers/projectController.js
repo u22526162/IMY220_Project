@@ -1,5 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { requireAuth } from '../utils/password.js';
+import { getDB } from '../config/database.js';
 import { 
   findUserProjects,
   createProject as createProjectDB,

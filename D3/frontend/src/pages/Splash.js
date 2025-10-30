@@ -1,7 +1,7 @@
 // Amadeus Fidos u22526162
 import React from "react";
 import "../styles/splash.css";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function SplashPage() {
   return (

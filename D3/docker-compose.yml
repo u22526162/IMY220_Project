@@ -1,0 +1,32 @@
+version: '3.9'
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: ./backend
+    environment:
+      - MONGO_URL=mongodb+srv://amadeus:Passw0rd@imy220.x06he1q.mongodb.net/?appName=IMY220
+      - JWT_SECRET=8c739dd990291f69a8e763e5f64048e4b6f83332e8c8103baa2804785964a4a03d8642fbb99540ec66962d4789564892d323c4b605437846111a44ab2781f66c
+      - PORT=4000
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
+
+

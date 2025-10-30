@@ -1,23 +1,30 @@
 // Amadeus Fidos u22526162
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/project.css";
+import { projectAPI } from "../api";
 
 export default function Projectpage() {
   const { id } = useParams();
+  const [project, setProject] = useState(null);
 
-  const project = {
-    id,
-    name: "Weather App 1.1.2",
-    description: "Track and visualize weather data",
-    date: "Last updated 2 Sept",
-    changelog: [
-      { version: "1.1.2", note: "Bug fix" },
-      { version: "1.1.0", note: "Added API integration" },
-      { version: "1.0.0", note: "Initial release" }
-    ]
-  };
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const p = await projectAPI.getProject(id);
+        setProject({
+          id: p._id || id,
+          name: p.name,
+          description: p.description,
+          date: new Date(p.updatedAt || p.createdAt).toLocaleDateString(),
+          changelog: p.changelog || []
+        });
+      } catch {}
+    };
+    if (id) load();
+  }, [id]);
 
+  if (!project) return null;
   return (
     <div className="project-detail-page">
       <div className="project-detail-hero">

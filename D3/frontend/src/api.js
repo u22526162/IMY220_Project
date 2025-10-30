@@ -38,7 +38,7 @@ export const authAPI = {
     });
   },
 
-  register: async (email, password) => {
+  register: async (username, email, password) => {
     return apiRequest('/auth/signup', {
       method: 'POST',
       body: JSON.stringify({ username, email, password }),

@@ -160,4 +160,3 @@ export const deleteCheckin = async (req, res) => {
     return handleControllerError(error, res, 'Delete checkin');
   }
 };
-};

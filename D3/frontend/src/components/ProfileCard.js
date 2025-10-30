@@ -10,3 +10,5 @@ function ProfileCard({ user }) {
     </div>
   );
 }
+
+export default ProfileCard;

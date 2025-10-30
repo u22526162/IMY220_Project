@@ -3,7 +3,7 @@ import "../styles/profile.css";
 import ProjectPreviewCard from "../components/ProjectPreviewCard";
 
 export default function FriendProfilePage() {
-  const friend = {
+  const user = {
     avatar: "/images/friend.png",
     name: "Friend123",
     bio: "Open source contributor",

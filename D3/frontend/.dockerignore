@@ -8,3 +8,5 @@ Dockerfile
 docker-compose.yml
 build
 dist
+.vscode
+.idea

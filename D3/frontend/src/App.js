@@ -13,6 +13,7 @@ import RegisterPage from "./pages/Register";
 import HomePage from "./pages/Home";
 import ProjectPage from "./pages/Project";
 import SplashPage from "./pages/Splash";
+import EditProfilePage from "./pages/EditProfile";
 
 export default function App() {
   return (
@@ -50,6 +51,14 @@ export default function App() {
           element={
             <Layout>
               <HomePage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/profile/edit"
+          element={
+            <Layout>
+              <EditProfilePage />
             </Layout>
           }
         />

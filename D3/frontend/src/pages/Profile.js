@@ -1,30 +1,63 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/profile.css";
 import ProjectPreviewCard from "../components/ProjectPreviewCard";
 import AddProject from "../components/AddProject";
+import { userAPI, projectAPI } from "../api";
+import { Link } from "react-router-dom";
 
 export default function UserProfile() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [projects, setProjects] = useState([
-    { id: 1, name: "Calculator app", description: "A cool calculator", date: "27 June" },
-    { id: 2, name: "Weather app 1.1.2", description: "Weather tracking", date: "Bug fix 1.1.2" },
-  ]);
+  const [projects, setProjects] = useState([]);
+  const [user, setUser] = useState({
+    avatar: "/assets/images/default.jpg",
+    name: "",
+    bio: "",
+    email: "",
+  });
 
-  const user = {
-    avatar: "/images/user1.png",
-    name: "Amadeus",
-    bio: "Frontend developer & designer",
-    email: "amadeus@example.com",
-  };
-
-  const handleAddProject = (newProject) => {
-    const project = {
-      id: Date.now(), // Simple ID generation for demo
-      name: newProject.name,
-      description: newProject.description,
-      date: "Just now"
+  useEffect(() => {
+    const stored = localStorage.getItem('user');
+    if (!stored) return;
+    const parsed = JSON.parse(stored);
+    if (!parsed?.id) return;
+    const load = async () => {
+      try {
+        const profile = await userAPI.getProfile(parsed.id);
+        setUser({
+          avatar: profile?.profile?.avatar || "/assets/images/default.jpg",
+          name: profile?.profile?.name || parsed.username || "",
+          bio: profile?.profile?.bio || "",
+          email: profile?.email || "",
+        });
+      } catch {}
+      try {
+        const list = await projectAPI.getProjects();
+        setProjects(list.map(p => ({
+          id: p._id || p.id,
+          name: p.name,
+          description: p.description,
+          date: new Date(p.updatedAt || p.createdAt).toLocaleDateString()
+        })));
+      } catch {}
     };
-    setProjects(prev => [...prev, project]);
+    load();
+  }, []);
+
+  const handleAddProject = async (newProject) => {
+    try {
+      await projectAPI.createProject({
+        name: newProject.name,
+        description: newProject.description,
+        hashtags: []
+      });
+      const list = await projectAPI.getProjects();
+      setProjects(list.map(p => ({
+        id: p._id || p.id,
+        name: p.name,
+        description: p.description,
+        date: new Date(p.updatedAt || p.createdAt).toLocaleDateString()
+      })));
+    } catch {}
   };
 
   return (
@@ -38,12 +71,15 @@ export default function UserProfile() {
       <div className="profile-right">
         <div className="flex justify-between items-center mb-4">
           <h3 className="profile-section-title">Projects</h3>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <Link className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded-md text-sm font-medium" to="/profile/edit">Edit Profile</Link>
           <button
             onClick={() => setIsModalOpen(true)}
             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             + Add Project
           </button>
+          </div>
         </div>
         <div className="profile-projects">
           {projects.map((p) => (

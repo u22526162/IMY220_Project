@@ -6,8 +6,7 @@ export async function connectDB() {
   try {
     client = new MongoClient(process.env.MONGO_URL);
     await client.connect();
-    db = client.db('IMY220');
-    console.log('connected to DB'); //log for debugging only delete later
+    db = client.db('IMY220_project');
     return db;
   } catch (error) {
     console.error('db connect error:', error);
