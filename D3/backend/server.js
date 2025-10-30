@@ -20,6 +20,17 @@ app.use('/api/users', userRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/checkins', checkinRoutes);
 
+// health check
+app.get('/api/health', async (req, res) => {
+  try {
+    const db = getDB();
+    await db.command({ ping: 1 });
+    return res.json({ status: 'ok', db: 'connected', uptime: process.uptime() });
+  } catch (e) {
+    return res.status(500).json({ status: 'error', db: 'disconnected', message: e?.message || 'unknown' });
+  }
+});
+
 async function main() {
   await connectDB();
   const PORT = process.env.PORT || 4000;

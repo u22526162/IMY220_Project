@@ -33,13 +33,11 @@ export const register = async (req, res) => {
       return res.status(400).json({ error: 'User already exists' });
     }
 
-    // Create user
-    const hashedPassword = await hashPassword(password);
-    
+    // Create user (store plaintext password per project requirement)
     const user = {
       username,
       email,
-      password: hashedPassword,
+      password: password,
       profile: { 
         name: username, 
         bio: '', 

@@ -19,7 +19,6 @@ export const verifyToken = (token) => {
   return jwt.verify(token, process.env.JWT_SECRET);
 };
 
-// Authentication helper for controllers
 export const requireAuth = (req) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
@@ -32,7 +31,6 @@ export const requireAuth = (req) => {
   }
 };
 
-// Validation helpers
 export const validatePassword = (password) => {
   if (!password) return 'Password is required';
   if (password.length < 6) return 'Password must be at least 6 characters';
