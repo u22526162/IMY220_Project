@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 import express from 'express';
 import cors from 'cors';
 import { connectDB, getDB } from './config/database.js';
@@ -11,7 +12,16 @@ import projectRoutes from './routes/projectRoutes.js';
 import checkinRoutes from './routes/checkinRoutes.js';
 
 const app = express();
-app.use(cors());
+
+// Configure CORS including preflight and Authorization header
+const corsOptions = {
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 app.use(express.json());
 
 //route declarations - these are base routes
@@ -20,7 +30,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/checkins', checkinRoutes);
 
-// health check
+// health check for dev only, delete later
 app.get('/api/health', async (req, res) => {
   try {
     const db = getDB();

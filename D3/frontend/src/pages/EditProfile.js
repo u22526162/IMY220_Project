@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/profile.css";
+import "../styles/editProfile.css";
 import { userAPI } from "../api";
 import { useNavigate } from "react-router-dom";
 
@@ -36,7 +37,7 @@ export default function EditProfilePage() {
     setError("");
     try {
       await userAPI.updateProfile(userId, { name, bio, avatar: "/assets/images/default.jpg" });
-      navigate("/dashboard");
+      navigate("/profile");
     } catch (e) {
       setError(e.message);
     } finally {
@@ -45,21 +46,23 @@ export default function EditProfilePage() {
   }
 
   return (
-    <div className="profile-page" style={{ maxWidth: 600, margin: "2rem auto" }}>
-      <h2 className="profile-section-title">Edit Profile</h2>
-      {error && <div className="error">{error}</div>}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <label>
-          Name
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <label>
-          Bio
-          <textarea rows={4} value={bio} onChange={(e) => setBio(e.target.value)} />
-        </label>
-        <button type="button" onClick={handleSave} disabled={loading}>
-          {loading ? "Saving..." : "Save"}
-        </button>
+    <div className="edit-profile-page">
+      <div className="edit-card">
+        <h2 className="edit-title">Edit Profile</h2>
+        {error && <div className="error">{error}</div>}
+        <div className="edit-field">
+          <label>Name</label>
+          <input className="edit-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        </div>
+        <div className="edit-field">
+          <label>Bio</label>
+          <textarea className="edit-textarea" rows={4} value={bio} onChange={(e) => setBio(e.target.value)} />
+        </div>
+        <div className="edit-actions">
+          <button type="button" className="btn-primary-modal" onClick={handleSave} disabled={loading}>
+            {loading ? "Saving..." : "Save"}
+          </button>
+        </div>
       </div>
     </div>
   );

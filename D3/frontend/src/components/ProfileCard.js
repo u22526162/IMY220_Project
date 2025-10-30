@@ -1,4 +1,5 @@
 // Amadeus Fidos u22526162
+import React from "react";
 function ProfileCard({ user }) {
   return (
     <div className="profile-card">

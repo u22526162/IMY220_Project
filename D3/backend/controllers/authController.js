@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 import { ObjectId } from 'mongodb';
 import { 
   hashPassword, 
@@ -83,7 +84,8 @@ export const login = async (req, res) => {
       return res.status(400).json({ error: 'Invalid credentials' });
     }
 
-    const isMatch = await comparePassword(password, user.password);
+    // Compare plaintext passwords (project requirement stores plaintext)
+    const isMatch = user.password === password;
     if (!isMatch) {
       return res.status(400).json({ error: 'Invalid credentials' });
     }

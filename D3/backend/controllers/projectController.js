@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 import { ObjectId } from 'mongodb';
 import { requireAuth } from '../utils/password.js';
 import { getDB } from '../config/database.js';
@@ -25,6 +26,24 @@ export const getProjects = async (req, res) => {
     res.json(projects);
   } catch (error) {
     return handleControllerError(error, res, 'Get projects');
+  }
+};
+
+export const getTrendingProjects = async (req, res) => {
+  try {
+    requireAuth(req);
+    const db = getDB();
+    const projects = await db.collection(COLLECTIONS.PROJECTS)
+      .aggregate([
+        { $addFields: { contributorsCount: { $size: { $setUnion: ['$editorIds', ['$ownerId']] } } } },
+        { $match: { contributorsCount: { $gt: 1 } } },
+        { $sort: { updatedAt: -1 } },
+        { $limit: 8 },
+        { $project: { contributorsCount: 0 } }
+      ]).toArray();
+    res.json(projects);
+  } catch (error) {
+    return handleControllerError(error, res, 'Get trending projects');
   }
 };
 

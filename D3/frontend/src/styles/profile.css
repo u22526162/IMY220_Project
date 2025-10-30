@@ -2,14 +2,18 @@
   display: flex;
   gap: 2rem;
   padding: 2rem;
+  background: #354346;
+  color: #fff;
+  min-height: calc(100vh - 80px);
 }
 
 .profile-left {
   width: 250px;
-  background-color: #f5f5f5;
+  background-color: #002E3D;
   padding: 1.5rem;
   border-radius: 8px;
   text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .profile-avatar {
@@ -23,17 +27,18 @@
 .profile-name {
   font-size: 1.4rem;
   margin: 0.5rem 0;
+  color: #1D8196;
 }
 
 .profile-bio {
   font-size: 0.95rem;
-  color: #666;
+  color: #d7e4e7;
   margin-bottom: 0.5rem;
 }
 
 .profile-email {
   font-size: 0.85rem;
-  color: #999;
+  color: #9fb7bd;
 }
 
 .profile-right {
@@ -43,6 +48,7 @@
 .profile-section-title {
   font-size: 1.2rem;
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 .profile-projects {
@@ -52,12 +58,13 @@
 }
 
 .profile-project-card {
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255,255,255,0.08);
   padding: 1rem;
   border-radius: 6px;
-  background-color: #fff;
+  background-color: #002E3D;
 }
 
 .profile-project-card h4 {
   margin: 0 0 0.3rem;
+  color: #1D8196;
 }

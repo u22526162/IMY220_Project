@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 import express from 'express';
 import {
   getProjects,
@@ -8,12 +9,14 @@ import {
   addProjectMember,
   removeProjectMember,
   uploadFile,
-  downloadFile
+  downloadFile,
+  getTrendingProjects
 } from '../controllers/projectController.js';
 
 const projectRouter = express.Router();
 
 projectRouter.get('/', getProjects);
+projectRouter.get('/trending', getTrendingProjects);
 projectRouter.post('/', createProject);
 projectRouter.get('/:id', getProjectById);
 projectRouter.put('/:id', updateProject);

@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 import React from "react";
 import "../styles/profile.css";
 import ProjectPreviewCard from "../components/ProjectPreviewCard";

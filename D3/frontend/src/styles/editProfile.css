@@ -1,0 +1,55 @@
+.edit-profile-page {
+  background: #354346;
+  min-height: calc(100vh - 80px);
+  color: #fff;
+  padding: 2rem;
+}
+
+.edit-card {
+  background: #002E3D;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.edit-title {
+  color: #1D8196;
+  margin: 0 0 1rem 0;
+}
+
+.edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.edit-input, .edit-textarea {
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  background: #00314B;
+  color: #fff;
+  outline: none;
+}
+
+.edit-textarea {
+  resize: vertical;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btn-primary-modal {
+  padding: 10px 16px;
+  color: #fff;
+  background: #1D8196;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}

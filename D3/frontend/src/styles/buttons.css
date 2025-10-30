@@ -1,0 +1,29 @@
+.btn-primary {
+  padding: 10px 16px;
+  color: #fff;
+  background: #1D8196;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  padding: 10px 16px;
+  color: #1f2937;
+  background: #e5e7eb;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-link {
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}

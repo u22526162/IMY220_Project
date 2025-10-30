@@ -1,7 +1,22 @@
+// Amadeus Fidos u22526162
 const API_BASE_URL = 'http://localhost:4000/api';
 
 const getAuthToken = () => {
   return localStorage.getItem('token');
+};
+
+const safeParseJson = async (response) => {
+  const contentType = response.headers.get('content-type') || '';
+  if (response.status === 204) return null;
+  if (!contentType.includes('application/json')) {
+    const text = await response.text();
+    return text ? { message: text } : null;
+  }
+  try {
+    return await response.json();
+  } catch {
+    return null;
+  }
 };
 
 const apiRequest = async (endpoint, options = {}) => {
@@ -9,6 +24,8 @@ const apiRequest = async (endpoint, options = {}) => {
   const token = getAuthToken();
   
   const config = {
+    method: 'GET',
+    mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
       ...(token && { Authorization: `Bearer ${token}` }),
@@ -18,14 +35,18 @@ const apiRequest = async (endpoint, options = {}) => {
 
   try {
     const response = await fetch(url, config);
-    const data = await response.json();
+    const data = await safeParseJson(response);
     
     if (!response.ok) {
-      throw new Error(data.error || 'Something went wrong');
+      const errorMessage = (data && (data.error || data.message)) || `${response.status} ${response.statusText}`;
+      throw new Error(errorMessage);
     }
     
     return data;
   } catch (error) {
+    if (error?.name === 'TypeError' && /fetch/i.test(error.message)) {
+      throw new Error(`Failed to fetch ${url}. Check server availability and CORS.`);
+    }
     throw error;
   }
 };
@@ -76,6 +97,10 @@ export const projectAPI = {
     return apiRequest('/projects');
   },
 
+  getTrending: async () => {
+    return apiRequest('/projects/trending');
+  },
+
   createProject: async (projectData) => {
     return apiRequest('/projects', {
       method: 'POST',
@@ -105,6 +130,10 @@ export const projectAPI = {
 export const checkinAPI = {
   getCheckins: async () => {
     return apiRequest('/checkins');
+  },
+
+  getFeed: async () => {
+    return apiRequest('/checkins/feed');
   },
 
   createCheckin: async (checkinData) => {

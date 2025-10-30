@@ -1,0 +1,18 @@
+.searchbar {
+  position: relative;
+  display: inline-block;
+}
+
+.searchbar input {
+  padding: 0.6rem 0.9rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  min-width: 320px;
+  font-size: 0.95rem;
+  background: #002E3D;
+  color: #fff;
+}
+
+.searchbar input::placeholder {
+  color: #9fb7bd;
+}

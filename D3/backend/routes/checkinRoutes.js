@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 import express from 'express';
 import {
   getCheckins,
@@ -5,7 +6,8 @@ import {
   updateCheckin,
   deleteCheckin,
   getProjectCheckins,
-  getUserCheckins
+  getUserCheckins,
+  getFeed
 } from '../controllers/checkinController.js';
 
 const checkinRouter = express.Router();
@@ -13,6 +15,7 @@ const checkinRouter = express.Router();
 checkinRouter.post('/', createCheckin);
 checkinRouter.get('/project/:projectId', getProjectCheckins);
 checkinRouter.get('/user/:userId', getUserCheckins);
+checkinRouter.get('/feed', getFeed);
 
 //extra routes - use if needed
 checkinRouter.get('/', getCheckins);

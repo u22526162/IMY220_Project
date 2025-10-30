@@ -12,7 +12,9 @@ export default function SideMenu({ open, onClose, onLogout }) {
         </button>
         <ul>
             <li><a href="/dashboard">Home</a></li>
-            <li><a href="/profile/edit">Profile</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/profile/edit">Edit Profile</a></li>
+            <li><a href="/projects">Projects</a></li>
             <li><button onClick={onLogout} style={{ background: 'transparent', border: 'none', color: 'inherit', cursor: 'pointer' }}>Logout</button></li>
         </ul>
       </div>

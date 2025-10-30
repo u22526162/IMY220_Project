@@ -1,4 +1,5 @@
 // Amadeus Fidos u22526162
+import React from "react";
 import "../styles/searchbar.css";
 
 export default function SearchBar({ placeholder = "Search...", onChange }) {

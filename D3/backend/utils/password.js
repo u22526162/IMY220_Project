@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 

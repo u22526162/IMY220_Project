@@ -1,0 +1,56 @@
+.dashboard-page {
+  padding: 2rem;
+  background: #354346;
+  min-height: calc(100vh - 80px);
+  color: #fff;
+}
+
+.dashboard-hero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-section {
+  margin-bottom: 2rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  margin: 0 0 1rem 0;
+  color: #fff;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #002E3D;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.card h3 {
+  margin: 0 0 0.25rem 0;
+  color: #1D8196;
+}
+
+.card p {
+  margin: 0 0 0.5rem 0;
+  color: #d7e4e7;
+}
+
+.card small {
+  color: #9fb7bd;
+}

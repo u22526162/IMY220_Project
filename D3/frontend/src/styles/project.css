@@ -1,16 +1,23 @@
 .project-detail-page {
   padding: 2rem;
+  background: #354346;
+  min-height: calc(100vh - 80px);
+  color: #fff;
 }
 
-.project-detail-header {
-  background-color: #f5f5f5;
+.project-detail-header,
+.project-detail-hero {
+  background-color: #002E3D;
   padding: 1rem 1.5rem;
   border-radius: 6px;
   margin-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
-.project-detail-header h2 {
+.project-detail-header h2,
+.project-detail-hero h2 {
   margin: 0;
+  color: #1D8196;
 }
 
 .project-detail-changelog h3 {
@@ -26,14 +33,53 @@
 .project-detail-changelog li {
   display: flex;
   gap: 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   padding: 0.5rem 0;
 }
 
 .changelog-version {
   font-weight: bold;
   min-width: 60px;
+  color: #9fb7bd;
 }
 .changelog-note {
-  color: #666;
+  color: #d7e4e7;
 }
+
+/* Check-ins */
+.project-checkins {
+  margin-top: 1.5rem;
+}
+
+.checkin-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.checkin-form input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  background: #00314B;
+  color: #fff;
+  outline: none;
+}
+
+.checkin-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checkin-item {
+  background: #002E3D;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.checkin-message { color: #d7e4e7; }
+.checkin-meta { color: #9fb7bd; }

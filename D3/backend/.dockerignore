@@ -1,0 +1,31 @@
+# Amadeus Fidos u22526162
+# Exclude dependencies and VCS
+node_modules
+npm-debug.log
+yarn-error.log
+.git
+.gitignore
+.vscode
+.idea
+
+# Environment and local config
+.env
+*.local
+
+# Logs and runtime files
+logs
+*.log
+pids
+*.pid
+
+# Build and dist artifacts
+build
+dist
+coverage
+
+# Docker and compose files (not needed in context)
+Dockerfile
+docker-compose.yml
+
+# Misc
+.DS_Store

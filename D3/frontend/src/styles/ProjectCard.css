@@ -1,16 +1,29 @@
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .project-card {
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 6px;
   padding: 1rem;
-  background-color: #fff;
+  background-color: #002E3D;
   cursor: pointer;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.05s ease;
+  color: #d7e4e7;
 }
 
 .project-card:hover {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  transform: translateY(-1px);
 }
 
 .project-card h3 {
   margin: 0 0 0.5rem;
+  color: #1D8196;
+}
+
+.project-card small {
+  color: #9fb7bd;
 }

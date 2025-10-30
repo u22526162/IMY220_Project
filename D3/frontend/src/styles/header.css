@@ -12,6 +12,13 @@
   border-bottom: 1px solid #ddd;
 }
 
+.header-inner {
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  align-items: center;
+}
+
 h1 {
     color: #1D8196;
 }
@@ -31,6 +38,7 @@ h1 {
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .side-menu {

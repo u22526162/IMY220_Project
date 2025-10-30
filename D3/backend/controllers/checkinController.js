@@ -1,3 +1,4 @@
+// Amadeus Fidos u22526162
 import { ObjectId } from 'mongodb';
 import { getDB } from '../config/database.js';
 import { requireAuth } from '../utils/password.js';
@@ -10,7 +11,8 @@ import {
   addCheckinToUser,
   generateId,
   handleControllerError,
-  COLLECTIONS
+  COLLECTIONS,
+  getUserFriends
 } from '../utils/fileStorage.js';
 
 export const getCheckins = async (req, res) => {
@@ -20,6 +22,32 @@ export const getCheckins = async (req, res) => {
     res.json(checkins);
   } catch (error) {
     return handleControllerError(error, res, 'Get checkins');
+  }
+};
+
+export const getFeed = async (req, res) => {
+  try {
+    const authUser = requireAuth(req);
+    const friends = await getUserFriends(authUser.id);
+    const userIds = [authUser.id, ...friends.map(f => f._id.toString())].map(id => new ObjectId(id));
+
+    const db = getDB();
+    const feed = await db.collection(COLLECTIONS.CHECKINS)
+      .aggregate([
+        { $match: { userId: { $in: userIds } } },
+        { $sort: { createdAt: -1 } },
+        { $limit: 20 },
+        { $lookup: { from: 'projects', localField: 'projectId', foreignField: '_id', as: 'project' } },
+        { $unwind: '$project' },
+        { $lookup: { from: 'users', localField: 'userId', foreignField: '_id', as: 'user' } },
+        { $unwind: '$user' },
+        { $project: { 'user.password': 0 } }
+      ])
+      .toArray();
+
+    res.json(feed);
+  } catch (error) {
+    return handleControllerError(error, res, 'Get feed');
   }
 };
 
