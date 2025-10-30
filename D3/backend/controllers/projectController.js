@@ -32,7 +32,6 @@ export const createProject = async (req, res) => {
     const authUser = requireAuth(req);
     const { name, description, hashtags } = req.body;
 
-    // Validation
     if (!name || name.trim().length === 0) {
       return res.status(400).json({ error: 'Project name is required' });
     }

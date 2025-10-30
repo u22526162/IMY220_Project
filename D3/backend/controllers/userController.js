@@ -41,12 +41,10 @@ export const updateUserProfile = async (req, res) => {
     const userId = req.params.id;
     const { name, bio, avatar } = req.body;
 
-    // Authorization check
     if (authUser.id !== userId) {
       return res.status(403).json({ error: 'Not authorized to update this profile' });
     }
 
-    // Validation
     if (name && name.length < 2) {
       return res.status(400).json({ error: 'Name must be at least 2 characters' });
     }
@@ -106,14 +104,12 @@ export const sendFriendRequest = async (req, res) => {
     const authUser = requireAuth(req);
     const toUserId = req.params.id;
 
-    // Prevent self-friending
     if (authUser.id === toUserId) {
       return res.status(400).json({ error: 'Cannot send friend request to yourself' });
     }
 
-    // Check if users exist
     const [fromUser, toUser] = await Promise.all([
-      findUserById(authUser.id, false), // Include password for friends check
+      findUserById(authUser.id, false),
       findUserById(toUserId)
     ]);
 
@@ -121,12 +117,10 @@ export const sendFriendRequest = async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    // Check if already friends
     if (fromUser.friendIds && fromUser.friendIds.some(friendId => friendId.toString() === toUserId)) {
       return res.status(400).json({ error: 'Already friends' });
     }
 
-    // Check if request already exists
     const db = getDB();
     const existingRequest = await db.collection(COLLECTIONS.FRIEND_REQUESTS).findOne({
       fromUser: new ObjectId(authUser.id),
@@ -138,7 +132,6 @@ export const sendFriendRequest = async (req, res) => {
       return res.status(400).json({ error: 'Friend request already sent' });
     }
 
-    // Create friend request
     await createFriendRequest(authUser.id, toUserId);
     res.json({ message: 'Friend request sent successfully' });
   } catch (error) {
@@ -151,19 +144,16 @@ export const acceptFriendRequest = async (req, res) => {
     const authUser = requireAuth(req);
     const requestId = req.params.requestId;
 
-    // Find and update friend request
     const request = await findFriendRequest(requestId, authUser.id);
     if (!request) {
       return res.status(404).json({ error: 'Friend request not found' });
     }
 
-    // Update request status
     await updateFriendRequest(requestId, { 
       status: 'accepted', 
       acceptedAt: new Date() 
     });
 
-    // Add to each other's friends list
     await Promise.all([
       addFriendToUser(request.fromUser.toString(), request.toUser.toString()),
       addFriendToUser(request.toUser.toString(), request.fromUser.toString())
